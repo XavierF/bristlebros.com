@@ -56,30 +56,28 @@
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/verif.js"></script>
     <?php }?>
   </head>
-  <body <?php body_class(); ?>  data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="10" padding-bottom:0;><div id="fb-root"></div>
-    <div class="navbar">
-           <div class="navbar-inner">
-             <div class="container">
-             <div class="inner-container">     
- <a class="brand" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('template_directory'); ?>/img/briscard-hdr.png"></a>
-
-  <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span>Menu</span>
- </button>      
-<?php
-           /** Loading WordPress Custom Menu  **/
-           wp_nav_menu( array(
-              'menu'            => 'main-menu',
-              'container_class' => 'nav-collapse',
-              'menu_class'      => 'nav',
-              'fallback_cb'     => '',
-              'menu_id' => 'main-menu',
-              'walker' => new Bootstrapwp_Walker_Nav_Menu()
-          ) ); ?>
-         
- </div><!-- .inner-container -->
+<body <?php body_class(); ?>  data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="10" padding-bottom:0;><div id="fb-root"></div>
+  <div class="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <div class="inner-container">     
+              <a class="brand" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('template_directory'); ?>/img/briscard-hdr.png"></a>
+              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span>Menu</span>
+              </button>      
+              <?php
+               /** Loading WordPress Custom Menu  **/
+               wp_nav_menu( array(
+                  'menu'            => 'main-menu',
+                  'container_class' => 'nav-collapse',
+                  'menu_class'      => 'nav',
+                  'fallback_cb'     => '',
+                  'menu_id' => 'main-menu',
+                  'walker' => new Bootstrapwp_Walker_Nav_Menu()
+              ) ); ?>
+            </div><!-- .inner-container -->
         </div><!-- .container -->
       </div><!-- .navbar-inner -->
-    </div><!-- .navbar navbar-inverse navbar-fixed-top -->
+    </div><!-- .navbar -->
     <!-- End Header -->
 <!-- Begin Template Content -->
