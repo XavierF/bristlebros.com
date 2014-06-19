@@ -12,7 +12,6 @@
  */
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
- 
     <div class="container">
         <div class="row content">
 		<div class="span11 clearfix">

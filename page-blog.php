@@ -1,4 +1,4 @@
-<?php
+-<?php
 /**
  * Template Name: Blog Page
  * Description: Page template to display blog posts
@@ -9,14 +9,11 @@
  */
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
-  
-  <div class="container">
- <!-- Masthead
- ================================================== -->
+<div class="container">
+ <!-- Masthead -->
  <header class="jumbotron subhead" id="overview">
   <h1><?php the_title();?></h1>
 </header>
-
 <div class="row content">
   <div class="span8">
     <?php the_content();

@@ -28,9 +28,9 @@
   if ( $paged >= 2 || $page >= 2 )
     echo ' | ' . sprintf( __( 'Page %s', 'bootstrapwp' ), max( $paged, $page ) );
   ?></title>
-    <meta charset="<?php bloginfo( 'charset' ); ?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta name="keywords" content="San Francisco, Bay Area, Mural Painting, sign painting, scenic painting,  painting,  Residential, Commercial" />
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="San Francisco, Bay Area, Mural Painting, sign painting, scenic painting,  painting,  Residential, Commercial" />
 <meta name="description" content="Artists" />
 <meta name="URL" content="http://bristlebros.com" />
 <meta name="author" content="Wordpress site Developed by Xavier F @ XavierF.Biz, Responsive Web Design Technology" />
@@ -40,14 +40,14 @@
 <meta property="og:image" content="<?php bloginfo('template_directory'); ?>/img/bristlebros-logo.jpg" />
 <meta property="og:site_name" content="Bristle Brothers.com" />
 <meta property="fb:admins" content="1273775628" />
-    <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
-    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-  <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="<?php bloginfo( 'template_url' );?>/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php bloginfo( 'template_url' );?>/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php bloginfo( 'template_url' );?>/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php bloginfo( 'template_url' );?>/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="<?php bloginfo( 'template_url' );?>/ico/apple-touch-icon-57-precomposed.png">
+<?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<!-- Le fav and touch icons -->
+<link rel="shortcut icon" href="<?php bloginfo( 'template_url' );?>/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php bloginfo( 'template_url' );?>/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php bloginfo( 'template_url' );?>/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php bloginfo( 'template_url' );?>/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="<?php bloginfo( 'template_url' );?>/ico/apple-touch-icon-57-precomposed.png">
  <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <?php wp_head(); ?>
      <link href="http://fonts.googleapis.com/css?family=Tinos" rel="stylesheet" type="text/css">
