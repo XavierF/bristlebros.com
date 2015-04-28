@@ -1,4 +1,4 @@
--<?php
+<?php
 /**
  * Template Name: Blog Page
  * Description: Page template to display blog posts
@@ -7,13 +7,21 @@
  * @subpackage WP-Bootstrap
  * @since WP-Bootstrap 0.1
  */
+
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
-<div class="container">
- <!-- Masthead -->
+  <div class="row">
+    <div class="container">
+      <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
+    </div><!--/.container -->
+  </div><!--/.row -->
+  <div class="container">
+ <!-- Masthead
+ ================================================== -->
  <header class="jumbotron subhead" id="overview">
   <h1><?php the_title();?></h1>
 </header>
+
 <div class="row content">
   <div class="span8">
     <?php the_content();

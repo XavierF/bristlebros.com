@@ -35,7 +35,6 @@ function remove_img_width_height( $html, $post_id, $post_image_id,$post_thumbnai
 <?php endwhile; // end of the loop. ?>
 <hr />
  <?php bootstrapwp_content_nav('nav-below');?>
- <?php comments_template(); ?>
           </div><!-- /.span11 -->
 		 </div><!-- /.row .content -->
   </div><!-- .container -->

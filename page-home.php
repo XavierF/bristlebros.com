@@ -10,38 +10,56 @@
  * Last Revised: July 16, 2012
  */
 get_header(); ?>
-<?php
-// The Query
-query_posts('cat=15');
-?>
+
+
 <div class="jumbotron">
   <div class="container clearfix">
-    <div class="flexslider">
-      <ul class="slides">
-        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
-        $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
-        $url = $thumb['0'];
-        ?>
-        <li>
-          <?php the_post_thumbnail('large'); ?>
-        </li>
-        <?php endwhile; endif; 
-        // Reset Query
-        wp_reset_query();
-        ?>  
-       </ul>
-    </div><!-- .flexslider -->
+    <div class="slider">
+
+<?php if ( have_rows('slide' ) ) :?>
+
+    <?php while ( have_rows( 'slide' ) ) : the_row();
+         
+        $image = wp_get_attachment_image_src(get_sub_field('slide_img'), 'large');
+         //$url = $thumb['0'];
+        // width = $image[1];
+        // height = $image[2]; ?>
+      
+        <div><img src="<?php echo $image[0]; ?>"  /></div>
+      
+
+    <?php endwhile; endif; ?>
+    </div><!-- .slides -->
   </div><!-- .container -->
 </div><!-- .jumbotron -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
-<script>
-$(window).load(function() {
-    $('.flexslider').flexslider({
-          animation: "slide",
-          easing: "swing",
-          slideshow: true
-    });
-});
-  </script>
-</div>
+
+<section id="category">
+  <div class="container panels">
+    <div class="row">
+
+      <div class="span4 panel">
+        <a href="<?php the_field('mural_link'); ?>">
+          <img src="<?php the_field('mural_img'); ?>" class="thumb">
+          <h3><?php the_field('mural_text'); ?></h3>
+        </a>
+      </div><!-- .span4 -->
+
+      <div class="span4 panel">
+        <a href="<?php the_field('scenic_link'); ?>">
+          <img src="<?php the_field('scenic_img'); ?>" class="thumb">
+          <h3><?php the_field('scenic_text'); ?></h3>
+        </a>
+      </div><!-- .span4 -->
+
+      <div class="span4 panel">
+        <a href="<?php the_field('sign_link'); ?>">
+          <img src="<?php the_field('sign_img'); ?>" class="thumb">
+          <h3><?php the_field('sign_text'); ?></h3>
+        </a>
+      </div><!-- .span4 -->
+
+    </div><!-- .row -->
+  </div><!-- .container -->
+</section>
+
 <?php get_footer();?>

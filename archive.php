@@ -51,22 +51,9 @@ if (have_posts() ) ;?>
 	  		</div><!-- end of .item -->
 			</div><!-- /.tiles -->
 				<?php endwhile; ?>
-							<?php bootstrapwp_content_nav('nav-below');?>
+	
 				</div><!-- /.span11 -->
  	</div><!-- /.row .content -->
 </div><!-- container -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.isotope.min.js"></script>
-<script>
-  $(function(){
-    var $container = $('#tiles');
-    $container.imagesLoaded( function(){
-      $container.isotope({
-        itemSelector : '.item',
-        layoutMode : 'masonry',
-        gutter: 10
-      });   
-    });
-  });
-</script>
+
 <?php get_footer(); ?>

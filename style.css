@@ -1,9 +1,9 @@
 /*
-Theme Name: BootstrapWP
+Theme Name: BootstrapWP Bristlebros
 Theme URI: http://bootstrapwp.rachelbaker.me
 Author: Rachel Baker
 Author URI: http://www.rachelbaker.me
-bristlebros developer: Xavierf.Biz
+bristlebros developer: Xavierf.Info
 Description: A semantic HTML/CSS framework base theme for WordPress Developers ported from Twitter Bootstrap
 Version: .87
 =======
@@ -109,7 +109,9 @@ background: #fff;
 border: 4px solid #fff; 
 position: relative;
 }
-.flex-viewport {max-height: 800px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; transition: all 1s ease;}
+.flexsider .slides img {
+height: auto;
+}
 .loading .flex-viewport {max-height: 300px;}
 .flexslider .slides {zoom: 1;}
 
@@ -400,7 +402,11 @@ color:#999;
 /*--------------------------------------------- Media Queries----------------------------------------------------------*****************/
 
 @media(min-width:1200px){
-
+  .flex-viewport {
+  max-height: 800px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease; transition: all 1s ease;
+  }
   .item {  
     width: 29%;
     margin: 20px 1.3% 20px 1.7%;
@@ -578,6 +584,7 @@ color:#999;
   }
   .flexslider .slides img {width:100%; 
   display: block;
+  height: auto;
   }
   .content {background-color: #fff;
     border:0;
@@ -588,6 +595,10 @@ color:#999;
 }
 
 @media (max-width:480px){
+  .navbar, .navbar-inner {padding: 0;
+  border: 0;
+  box-shadow: none;
+  }
   .item {
   min-height: 200px;
   max-width:410px;

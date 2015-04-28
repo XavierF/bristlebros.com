@@ -56,6 +56,62 @@ if (!function_exists('bootstrapwp_theme_setup')):
     }
 endif;
 
+function bootstrapwp_head_cleanup() {
+    // category feeds
+    // remove_action( 'wp_head', 'feed_links_extra', 3 );
+    // post and comment feeds
+    // remove_action( 'wp_head', 'feed_links', 2 );
+    // EditURI link
+    remove_action( 'wp_head', 'rsd_link' );
+    // windows live writer
+    remove_action( 'wp_head', 'wlwmanifest_link' );
+    // index link
+    remove_action( 'wp_head', 'index_rel_link' );
+    // previous link
+    remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
+    // start link
+    remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
+    // links for adjacent posts
+    remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+    // WP version
+    remove_action( 'wp_head', 'wp_generator' );
+    // remove WP version from css
+    add_filter( 'style_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
+    // remove Wp version from scripts
+    add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
+
+} /* end bootstrap head cleanup */
+
+// remove WP version from RSS
+function bootstrapwp_rss_version() { return ''; }
+
+// remove WP version from scripts
+function bootstrapwp_remove_wp_ver_css_js( $src ) {
+    if ( strpos( $src, 'ver=' ) )
+        $src = remove_query_arg( 'ver', $src );
+    return $src;
+}
+
+// remove injected CSS for recent comments widget
+function bootstrapwp_remove_wp_widget_recent_comments_style() {
+   if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
+      remove_filter( 'wp_head', 'wp_widget_recent_comments_style' );
+   }
+}
+
+// remove injected CSS from recent comments widget
+function bootstrapwp_remove_recent_comments_style() {
+  global $wp_widget_factory;
+  if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
+    remove_action( 'wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style') );
+  }
+}
+
+// remove injected CSS from gallery
+function bootstrapwp_gallery_style($css) {
+  return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
+}
+
 /**
  * remove inline gallery styles
  */
@@ -85,14 +141,21 @@ function bootstrapwp_scripts_styles_loader()
     }
     wp_enqueue_script(
         'bootstrapjs',
-        get_template_directory_uri() . '/js/bootstrap.min.js',
+        get_template_directory_uri() . '/library/js/bootstrap.min.js',
         array('jquery'),
         '0.91',
         true
     );
     wp_enqueue_script(
         'flexsiderjs',
-        get_template_directory_uri() . '/js/jquery.flexslider-min.js',
+        get_template_directory_uri() . '/library/js/slick.min.js',
+        array('jquery'),
+        '0.91',
+        true
+    );
+    wp_enqueue_script(
+        'isotopejs',
+        get_template_directory_uri() . '/library/js/jquery.isotope.min.js',
         array('jquery'),
         '0.91',
         true
@@ -101,20 +164,26 @@ function bootstrapwp_scripts_styles_loader()
 
      wp_enqueue_style(
         'bootstrap-style',
-        get_template_directory_uri() . '/css/bootstrap.min.css',
+        get_template_directory_uri() . '/library/css/bootstrap.min.css',
         false,
         '0.91',
         'all'
     );
     wp_enqueue_style(
         'bootstrap-responsive-style',
-        get_template_directory_uri() . '/css/bootstrap-responsive.min.css',
+        get_template_directory_uri() . '/library/css/bootstrap-responsive.min.css',
         false,
         '0.91',
         'all'
     );
 
-    wp_enqueue_style('bootstrapwp-default', get_stylesheet_uri());
+    wp_enqueue_style(
+        'bootstrapwp-child-style ', 
+        get_template_directory_uri() . '/library/css/child.css',
+        false,
+        '0.91',
+        'all'
+    );
 
  
 }

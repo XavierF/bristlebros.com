@@ -33,7 +33,7 @@
 <meta name="keywords" content="San Francisco, Bay Area, Mural Painting, sign painting, scenic painting,  painting,  Residential, Commercial" />
 <meta name="description" content="Artists" />
 <meta name="URL" content="http://bristlebros.com" />
-<meta name="author" content="Wordpress site Developed by Xavier F @ XavierF.Biz, Responsive Web Design Technology" />
+<meta name="author" content="Wordpress site Developed by Xavier F @ XavierF.info , Responsive Web Design Technology" />
 <meta property="og:title" content="Bristle Bros." />
 <meta property="og:type" content="Artists" />
 <meta property="og:url" content="http://bristlebros.com/" />
@@ -57,14 +57,14 @@
     <?php }?>
   </head>
 <body <?php body_class(); ?>  data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="10" padding-bottom:0;><div id="fb-root"></div>
-  <div class="navbar">
+  <div class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-inner">
-        <div class="container">
-            <div class="inner-container">     
-              <a class="brand" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('template_directory'); ?>/img/briscard-hdr.png"></a>
-              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span>Menu</span>
-              </button>      
+      <div class="container">
+        <div class="inner-container">     
+            <a class="brand" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('template_directory'); ?>/library/img/briscard-hdr.png"></a>
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span>Menu</span>
+          </button>      
               <?php
                /** Loading WordPress Custom Menu  **/
                wp_nav_menu( array(
@@ -75,9 +75,9 @@
                   'menu_id' => 'main-menu',
                   'walker' => new Bootstrapwp_Walker_Nav_Menu()
               ) ); ?>
-            </div><!-- .inner-container -->
-        </div><!-- .container -->
-      </div><!-- .navbar-inner -->
-    </div><!-- .navbar -->
+        </div><!-- .inner-container -->
+      </div><!-- .container -->
+    </div><!-- .navbar-inner -->
+  </div><!-- .navbar -->
     <!-- End Header -->
 <!-- Begin Template Content -->
